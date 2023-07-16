@@ -16,9 +16,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
     
-    - name: Set up CMake
-      uses: actions/setup-cmake@v3
-    
     - name: Build and Execute
       run: |
         mkdir build
