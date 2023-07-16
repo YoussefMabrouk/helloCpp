@@ -1,0 +1,28 @@
+name: CMake
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Set up CMake
+      uses: actions/setup-cmake@v1
+    
+    - name: Build and Execute
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        make
+        ./hello_world
