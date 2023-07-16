@@ -20,8 +20,9 @@ jobs:
       id: check-eigen
       run: |
         cmake --version
-        eigen_path=$(cmake -E chdir build cmake --find-package -DNAME=Eigen3)
-        echo "EIGEN_PATH=$eigen_path" >> $GITHUB_ENV
+        pkg-config --exists eigen3
+        echo "::set-output name=found::$?"
+
     
     - name: Build and Execute
       run: |
